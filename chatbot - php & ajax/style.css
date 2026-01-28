@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    background: #f0f1f6; /* Light background for contrast */
+    width:100%;
+    margin-top: 35px;
+}
+
+::selection {
+    color: #fff;
+    background: #41d3ca; /* A color from the gradient for selection */
+}
+
+::-webkit-scrollbar {
+    width: 6px; /* Slightly wider scrollbar for better interaction */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00c3e5; /* A lighter color from the gradient */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00b9ee; /* Slightly darker shade on hover */
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 480px; /* Larger maximum width for better visibility on mobile */
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* Use a percentage-based height for responsiveness */
+}
+
+.wrapper .title {
+    background: linear-gradient(to right bottom, #eb56ab, #da66c2, #c475d5, #ac83e2, #928fe9, #779bf0, #59a5f3, #3baef1, #00b9ee, #00c3e5, #00ccd9, #41d3ca);
+    color: #fff;
+    font-size: 24px; /* Larger font size for better readability */
+    font-weight: 600;
+    line-height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+}
+
+.wrapper .form {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .form .inbox {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px; /* Space between messages */
+}
+
+.wrapper .form .user-inbox {
+    justify-content: flex-end;
+}
+
+.wrapper .form .inbox .icon {
+    height: 50px; /* Slightly larger icon for better visibility */
+    width: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 24px; /* Larger icon size */
+    background: #41d3ca; /* Main color from the gradient */
+}
+
+.wrapper .form .inbox .msg-header {
+    max-width: 80%; /* Increase maximum width for messages */
+}
+
+.wrapper .form .inbox .msg-header p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    color: #fff;
+    background: #41d3ca; /* Main color from the gradient */
+    border-radius: 15px;
+    padding: 12px 15px;
+    font-size: 16px; /* Larger font size for better readability */
+}
+
+.wrapper .form .user-inbox .msg-header p {
+    color: #333;
+    background: #e0e0e0; /* Light gray for user messages */
+}
+
+.wrapper .typing-field {
+    display: flex;
+    height: 70px; /* Increased height for better input area */
+    width: 100%;
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    padding: 0 10px;
+}
+
+.wrapper .typing-field .input-data {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.wrapper .typing-field .input-data input {
+    height: 100%;
+    width: calc(100% - 80px); /* Adjust width for button space */
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 0 15px;
+    border-radius: 5px;
+    font-size: 16px; /* Larger font size for input */
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+
+}
+
+.typing-field .input-data input:focus {
+    border-color: #41d3ca; /* Match focus color with main color */
+}
+
+.input-data input::placeholder {
+    color: #999;
+}
+
+.input-data input:focus::placeholder {
+    color: #666;
+}
+
+.wrapper .typing-field .input-data button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    height: 50px; /* Larger button for better interaction */
+    width: 70px;
+    color: #fff;
+    font-size: 18px; /* Larger font size for button text */
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    background: #41d3ca; /* Main color from the gradient */
+    border: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    margin-right: -8px;
+}
+
+.wrapper .typing-field .input-data button:hover {
+    background: #00b9ee; /* Slightly darker shade on hover */
+}

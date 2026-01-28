@@ -1,0 +1,516 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    background-color: rgba(245, 245, 245, 0.27); /* Light Gray */
+}
+
+
+.section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 2px solid #D95DDD;
+    padding-bottom: 10px;
+    color: #333;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.partner-item, .teacher-item {
+    margin-bottom: 20px;
+}
+
+.partner-item img, .teacher-item img {
+    max-width: 150px;
+    border-radius: 8px;
+}
+
+.news-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+.admin-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #EB56AB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.admin-button:hover {
+    background-color: #0056b3;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.popup.show {
+    display: block;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup form button:hover {
+    background-color: #0056b3;
+}
+
+.news-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 1200px;
+}
+
+.news-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.wrapper{
+    height: 400px;
+    width: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.wrapper .card{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    transform: translateY(0deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+.wrapper:hover > .front-face{
+    transform: rotateY(-180deg);
+}
+.wrapper .card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.wrapper .back-face{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    transform: rotateY(180deg);
+}
+.wrapper:hover > .back-face{
+    transform: rotateY(0deg);
+}
+.wrapper .back-face img{
+    height: 150px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #EB56AB, #2ede98);
+}
+.wrapper .back-face .info{
+    text-align: center;
+}
+.back-face .info .title{
+    font-size: 30px;
+    font-weight: 500;
+}
+.back-face ul{
+    display: flex;
+}
+.back-face ul a{
+    display: block;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    text-align: center;
+    margin: 0 5px;
+    line-height: 38px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #EB56AB, #2ede98);
+    transition: all 0.5s ease;
+}
+.back-face ul a:hover{
+    color: #EB56AB;
+    border-color: #1cc7d0;
+    background: linear-gradient(375deg, transparent, transparent);
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e3f2fd;
+}
+.testimonial {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    padding: 50px 0;
+    overflow: hidden;
+}
+.testimonial .image {
+    height: 170px;
+    width: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.testimonial .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 30px;
+    height: 100%;
+    width: 100%;
+}
+.slide p {
+    text-align: center;
+    padding: 0 160px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+.slide .quote-icon {
+    font-size: 30px;
+    color: #EB56AB;
+}
+.slide .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.details .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+.details .job {
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+}
+/* swiper button css */
+.nav-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    transform: translateY(30px);
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.nav-btn::after,
+.nav-btn::before {
+    font-size: 20px;
+    color: #fff;
+}
+/* General Section Styling */
+.professors-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Wrapper Container */
+.wrapper-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Each Card */
+.wrapper {
+    height: 400px;
+    width: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.wrapper .card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    transform: translateY(0deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+
+.wrapper:hover > .front-face {
+    transform: rotateY(-180deg);
+}
+
+.wrapper .back-face {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    transform: rotateY(180deg);
+}
+
+.wrapper:hover > .back-face {
+    transform: rotateY(0deg);
+}
+
+.wrapper .card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.wrapper .back-face img {
+    height: 150px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #eb56ab, #da66c2, #c475d5, #ac83e2, #928fe9, #779bf0, #59a5f3, #3baef1, #00b9ee, #00c3e5, #00ccd9, #41d3ca);
+}
+
+.wrapper .back-face .info {
+    text-align: center;
+}
+
+.back-face .info .title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.back-face ul {
+    display: flex;
+}
+
+.back-face ul a {
+    display: block;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    text-align: center;
+    margin: 0 5px;
+    line-height: 38px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #1cc7d0, #2ede98);
+    transition: all 0.5s ease;
+}
+
+.back-face ul a:hover {
+    color: #1cc7d0;
+    border-color: #1cc7d0;
+    background: linear-gradient(375deg, transparent, transparent);
+}
+
+@media screen and (max-width: 768px) {
+    .slide p {
+        padding: 0 20px;
+    }
+    .nav-btn {
+        display: none;
+    }
+}
+/* Seksioni i departamenteve */
+.cards{
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+}
+.cards h2.header{
+    font-size: 40px;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.services{
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Qendroni kartat */
+}
+.content{
+    width: 300px; /* Përmasat fikse për kartën */
+    height: 400px; /* Përmasa fikse në lartësi */
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: all .3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.content .fab{
+    font-size: 70px;
+    margin: 16px 0;
+}
+.content > *{
+    flex: 1 1 auto;
+}
+.content:hover{
+    color: white;
+}
+.content:hover a{
+    border-color: white;
+    background: white;
+}
+.content-1:hover {
+    border-color: #D95DDD; /* Use the seventh color */
+    background: #D95DDD; /* Use the seventh color */
+}
+.content-1:hover a {
+    color: #D95DDD; /* Use the seventh color */
+}
+
+.content-2:hover {
+    border-color: #00b9ee; /* Use the eighth color */
+    background: #00b9ee; /* Use the eighth color */
+}
+.content-2:hover a {
+    color: #00b9ee; /* Use the eighth color */
+}
+
+.content-3:hover {
+    border-color: #41D3CA; /* Use the ninth color */
+    background: #41D3CA; /* Use the ninth color */
+}
+.content-3:hover a {
+    color: #41D3CA; /* Use the ninth color */
+}
+.content h2{
+    font-size: 30px;
+    margin: 16px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.content p{
+    font-size: 17px;
+    font-family: 'Poppins',sans-serif;
+    margin: 10px 0; /* Përshtatje për përmbajtjen brenda kartës */
+}
+.content a{
+    margin: 22px 0;
+    background: black;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: 15px 30px; /* Përshtatje për madhësinë e butonit */
+    border-radius: 25px;
+    transition: .3s ease;
+}
+.content a:hover{
+    border-radius: 4px;
+}
+@media (max-width: 900px) {
+    .services{
+        display: flex;
+        flex-direction: column;
+    }
+    .content{
+        width: 100%; /* Kartat të marrin gjerësinë e plotë në ekranet më të vogla */
+        height: auto;
+    }
+}
+
+/*ABOUT.PHP*/
+
+.about-section{
+    justify-content: center;
+    grid-area: span;
+}
+
+.map-section{
+    justify-content: right;
+}
